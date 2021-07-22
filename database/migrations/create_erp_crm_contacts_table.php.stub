@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up()
+    public function up(): void
     {
         Schema::create('erp_crm_contacts', function (Blueprint $table) {
             $table->id();
@@ -27,5 +27,10 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('erp_crm_contacts');
     }
 };
